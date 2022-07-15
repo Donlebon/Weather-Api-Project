@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cabin+Condensed:wght@400;700&display=swap" rel="stylesheet">    <title>Weather Project</title>
+</head>
+<body>
+
+    
+<main>
+
+<article class = "container">
+
+    <div class = "date-container date">
+    <h2 class = "day">Date</h2>
+    </div>
+    
+    <div class = "weather-icon center">
+        <i class="fa-solid fa-cloud fa-7x"></i>
+        <!-- <i class="fa-solid fa-sun"></i> -->
+        <!-- <i class="fa-solid fa-cloud-rain"></i> -->
+        <!-- <i class="fa-solid fa-cloud-snow"></i>  -->
+        <!-- <i class="fa-solid fa-cloud-bolt"></i> -->
+    </div>
+
+    <div class = "temp-container center">
+        <h3 class = "temperature"></h3>
+    </div>
+
+    <h1 class = "location center">Location</h1>
+
+    <div class = "climate climate-description">
+
+        <h4 class = "skies">Skies</h4>
+        <h4 class = "humidity">Humidity</h4>
+        <h4 class = "precipitation">Precipitation</h4>
+
+    </div>
+
+    <div class = "climate climate-values">
+
+        <h4 class = "skies-value">Cloudy</h4>
+        <h4 class = "humidity-value">30%</h4>
+        <h4 class = "precipitation-value">30%</h4>
+
+    </div>
+
+    <div class = "climate sun">
+   
+        
+        <div class = "sunrise-container">
+        <img src="icons8-sunrise-50.png" alt="" class = "sunrise-icon">
+        <h5 class = "sunrise-time">time</h5>
+        </div>
+
+        <div>
+        <img src="icons8-sunset-50.png" alt="" class = "sunset-icon">
+        <h5 class = "sunset-time">time</h5>
+        </div>
+
+    </div>
+
+
+</article>
+
+
+        
+    <div class = "weather center">
+
+        <label for="text"></label>
+        <input type="text" class = "cityName" placeholder = "Enter a City Name">
+
+        <button id = "weather-button">Submit</button>
+
+    </div>
+
+
+
+</main>
+
+
+    <!-- https://dribbble.com/shots/15839686-Weather-app -->
+    <!-- https://dribbble.com/shots/16987787-Weather-App -->
+    
+    
+</body>
+<script src="index.js"></script>
+<script src="https://kit.fontawesome.com/e9f4965cae.js" crossorigin="anonymous"></script>
+</html>

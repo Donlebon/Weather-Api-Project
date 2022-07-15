@@ -1,0 +1,146 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-weight: 400;
+}
+
+img{
+    max-width: 100%;
+}
+
+body{
+    font-family: 'Cabin Condensed', sans-serif;
+    color: white;
+    background-color: #FCF8E8;
+}
+
+.center{
+    text-align: center;
+}
+
+/* Card */
+
+.container{
+    background: #667db6;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    margin: auto;
+    width: 360px;
+    border-radius: 2em;
+    margin-top: 1em;
+}
+
+/* Time and Date */
+
+.date-container{
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+}
+
+.date{
+    padding-top: 2em;
+}
+
+.day{
+    margin-left: 1.5em;
+}
+
+/* Weather Picture */
+
+.weather-icon{
+    margin-top: 2em;
+}
+
+/* Climate Description */
+
+.climate{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.climate-description{
+    margin-top: 5em;
+}
+
+.climate-description > h4{
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.climate-values{
+    opacity: 0.8;
+}
+
+.skies-value{
+    text-align: center;
+    width: 50px;
+    margin-right: 5em;
+}
+
+.humidity-value{
+    padding-right: 5em;
+}
+
+
+
+/* Temperature */
+
+.temp-container{
+    font-size: 1.5rem;
+    margin-top: 1em;
+}
+
+h3{
+    font-weight: 700;
+}
+
+.location{
+    margin-top: 0.5em;
+}
+
+/* Sunrise and Sunset */
+
+.sun{
+    margin-top: 1em;
+    padding-bottom: 2em;
+}
+
+.sunrise-icon, .sunset-icon{
+    height: 26px;
+    width: 26px;
+    color: white;
+}
+
+
+/* Button */
+
+.weather{
+    margin-top: 1em;
+}
+
+.cityName{
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-bottom: 1.5px solid black;
+    outline-width: 0;
+    background-color: #FCF8E8; 
+}
+
+input:focus::placeholder {
+    color: transparent;
+}
+ 
+#weather-button{
+    font-size: 1rem;
+    letter-spacing: 1.1px;
+    color: white;
+    font-weight: bold;
+    padding: 0.4em 0.9em;
+    border-radius: 0.2em;
+    background-color: #EB1D36;
+    border: none;
+    cursor: pointer;
+}

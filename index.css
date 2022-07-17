@@ -58,6 +58,7 @@ body{
 .climate{
     display: flex;
     justify-content: space-evenly;
+    text-align: center;
 }
 
 .climate-description{
@@ -70,19 +71,18 @@ body{
 }
 
 .climate-values{
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.skies, .humidity, .skies-value, .humidity-value{
+    flex-basis: 20%;
+}
+
+.skies-value, .humidity-value{
     opacity: 0.8;
 }
-
-.skies-value{
-    text-align: center;
-    width: 50px;
-    margin-right: 5em;
-}
-
-.humidity-value{
-    padding-right: 5em;
-}
-
 
 
 /* Temperature */
@@ -108,12 +108,19 @@ h3{
 }
 
 .sunrise-icon, .sunset-icon{
-    height: 26px;
-    width: 26px;
-    color: white;
+    height: 40px;
+    width: 40px;
 }
 
+.sunrise-container{
+    margin-right: 1.05em;
+}
 
+.sunset-time, .sunrise-time{
+    font-size: 1rem;
+    opacity: 0.8;
+    font-weight: 700;
+}
 /* Button */
 
 .weather{

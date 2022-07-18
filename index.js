@@ -93,7 +93,6 @@ function convertTime(unix){
     return time
 }
 
-
 // Fetch Request
 
 fetch("https://api.openweathermap.org/data/2.5/weather?q=San Jose&appid=e79ab9c18b89145630220d4377fa6219&units=imperial")
@@ -111,7 +110,7 @@ fetch("https://api.openweathermap.org/data/2.5/weather?q=San Jose&appid=e79ab9c1
     })
     .catch(console.error())
 
-weatherButton.addEventListener("click", function(){
+weatherButton.addEventListener("click", function(animation){
     let city = cityInput.value
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=e79ab9c18b89145630220d4377fa6219&units=imperial`)
         .then(response => response.json())
@@ -121,45 +120,33 @@ weatherButton.addEventListener("click", function(){
                 place.textContent = data.name;
                 skiesValue.textContent = data.weather[0].main;
                 humidityValue.textContent = data.main.humidity + "%";
-                // sunrise.textContent = convertTime(data.sys.sunrise);
+                sunrise.textContent = convertTime(data.sys.sunrise);
                 sunset.textContent = convertTime(data.sys.sunset)
                 changeWeather(data);
-                blink(data)
+                blink()
         })
         .catch(console.error)
 })
 
+let animation = [weatherIcon, temperature, place, skiesValue, humidityValue, 
+sunrise, sunset]
+
+
+function blink(){
+    for(let element of animation){
+    element.classList.add("changeOpacity")
+    setTimeout(() =>{ 
+        element.classList.remove("changeOpacity")
+        element.classList.add("originalOpacity")
+}, 250)
+    element.classList.remove("originalOpacity")
+}}
+
 
 // Enter Submit for Button
 cityInput.addEventListener("keypress", function(event) {
-  if (event.key === "Enter") {
-    event.preventDefault();
-    weatherButton.click();
-  }
-});
-
-// Animation for Icon
-
-// Animation for Temp
-
-// Animation for Location
-
-// Animation for Skies
-
-// Animation for Humidity
-
-// Animation for Sunrise
-
-function blink(data){
-    sunrise.classList.add("changeOpacity")
-    setTimeout(() =>{ 
-        sunrise.classList.remove("changeOpacity")
-        sunrise.classList.add("originalOpacity")
-}, 250)
-    sunrise.classList.remove("originalOpacity")
-    sunrise.textContent = convertTime(data.sys.sunrise)
-}
-
-// Animation for Sunset
-
-
+    if (event.key === "Enter") {
+      event.preventDefault();
+      weatherButton.click();
+    }
+  });

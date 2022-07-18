@@ -50,7 +50,10 @@ body{
 /* Weather Picture */
 
 .weather-icon{
-    margin-top: 2em;
+    height: 150px;
+    width: 150px;
+    margin: auto;
+    margin-top: 0.7em;
 }
 
 /* Climate Description */
@@ -62,7 +65,7 @@ body{
 }
 
 .climate-description{
-    margin-top: 5em;
+    margin-top: 3em;
 }
 
 .climate-description > h4{
@@ -97,7 +100,7 @@ h3{
 }
 
 .location{
-    margin-top: 0.5em;
+    margin-top: 0.3em;
 }
 
 /* Sunrise and Sunset */
@@ -151,3 +154,26 @@ input:focus::placeholder {
     border: none;
     cursor: pointer;
 }
+
+#weather-button:hover{
+    opacity: 0.6;
+}   
+
+/* Animation */
+
+.credit{
+    text-align: center;
+    font-size: 0.5rem;
+    display: block;
+    margin-top: 2em;
+}
+
+.changeOpacity{
+    opacity: 0;
+    transition: 100ms;
+}
+.originalOpacity{
+    opacity: 0.8;
+    transition: 250ms;
+}
+

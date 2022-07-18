@@ -43,16 +43,41 @@ function toCelsius(fahren){
 
 // Weather 
 
-let weatherConditions = 
-["Clear", "Clouds", "Rain", "Drizzle", 
-"Thunderstorm", "Snow", "Mist", "Smoke", "Haze", "Dust", 
-"Fog", "Sand", "Ash", "Squall", "Tornado"]
+let mainWeather = 
+["clear", "clouds", "rain", "drizzle", 
+"thunderstorm", "snow", "fog"]
 
-// <i class="fa-solid fa-cloud fa-7x"></i>
-//         <!-- <i class="fa-solid fa-sun"></i> -->
-//         <!-- <i class="fa-solid fa-cloud-rain"></i> -->
-//         <!-- <i class="fa-solid fa-cloud-snow"></i>  -->
-//         <!-- <i class="fa-solid fa-cloud-bolt"></i> -->
+let alternateWeather = 
+["smoke", "haze", "dust", 
+"mist", "sand", "ash", "squall", "tornado"]
+
+// Check if Weather Data Matches Weather Conditions
+
+function checkWeather(data){
+    let weatherMain = data.weather[0].main.toLowerCase()
+    for (let i = 0; i < mainWeather.length; i++){
+        if (mainWeather[i] === (weatherMain)){
+            weatherIcon.src = mainWeather[i] + ".png"
+        }
+    } 
+}
+
+// Weather for "smoke", "haze", "dust".. etc
+
+function altWeather(data){
+    let weatherMain = data.weather[0].main.toLowerCase()
+    for (let i = 0; i < alternateWeather.length; i++){
+        if (alternateWeather[i] == (weatherMain)){
+            weatherIcon.src = "fog.png"
+        }
+    } 
+}
+
+function changeWeather(data){
+    checkWeather(data)
+    altWeather(data)
+}
+
 
 // Time Conversion
 
@@ -82,11 +107,59 @@ fetch("https://api.openweathermap.org/data/2.5/weather?q=San Jose&appid=e79ab9c1
         humidityValue.textContent = data.main.humidity + "%"
         sunrise.textContent = convertTime(data.sys.sunrise)
         sunset.textContent = convertTime(data.sys.sunset)
-        console.log(data)
+        changeWeather(data)
     })
     .catch(console.error())
 
 weatherButton.addEventListener("click", function(){
-
+    let city = cityInput.value
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=e79ab9c18b89145630220d4377fa6219&units=imperial`)
+        .then(response => response.json())
+        .then(data => {
+            let celsius = toCelsius(data.main.temp);
+                temperature.textContent = data.main.temp.toFixed(1) + "°F" + " or " + celsius + "°C";
+                place.textContent = data.name;
+                skiesValue.textContent = data.weather[0].main;
+                humidityValue.textContent = data.main.humidity + "%";
+                // sunrise.textContent = convertTime(data.sys.sunrise);
+                sunset.textContent = convertTime(data.sys.sunset)
+                changeWeather(data);
+                blink(data)
+        })
+        .catch(console.error)
 })
+
+
+// Enter Submit for Button
+cityInput.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    weatherButton.click();
+  }
+});
+
+// Animation for Icon
+
+// Animation for Temp
+
+// Animation for Location
+
+// Animation for Skies
+
+// Animation for Humidity
+
+// Animation for Sunrise
+
+function blink(data){
+    sunrise.classList.add("changeOpacity")
+    setTimeout(() =>{ 
+        sunrise.classList.remove("changeOpacity")
+        sunrise.classList.add("originalOpacity")
+}, 250)
+    sunrise.classList.remove("originalOpacity")
+    sunrise.textContent = convertTime(data.sys.sunrise)
+}
+
+// Animation for Sunset
+
 
